@@ -1,3 +1,5 @@
+const url = 'https://vue3-course-api.hexschool.io';
+const path = 'patrickapi';
 const app = {
     data:{
         products:[],

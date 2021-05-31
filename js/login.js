@@ -21,7 +21,7 @@ function login(){
         window.location = "ProductList.html";
       }
       else{
-          alert('帳號或密碼錯誤');
+         alert('帳號或密碼錯誤');
       }    
      })
     .catch(()=>{
