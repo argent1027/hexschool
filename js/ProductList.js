@@ -72,6 +72,9 @@ render(){
         console.log(item);
         item.addEventListener('click',this.transfer);
     })
+
+    const count = document.querySelector('#productCount');
+    count.textContent = app.data.products.length;
 },
 delete(evt){
     console.log(evt);    
