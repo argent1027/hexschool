@@ -104,8 +104,7 @@ body {
 
 .container {
   justify-content: center;
-
-  margin-top: 5%;
+  margin-top: 6%;
   width: 400px;
   height: 600px;
 }
@@ -130,3 +129,7 @@ body {
   width: 120px;
 }
 
+.modal-content {
+  background-color: transparent;
+  border: transparent;
+}
