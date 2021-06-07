@@ -84,15 +84,15 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
-                  <label for="imagesurl">主要圖片</label>
-                  <input v-model="tempProduct.imagesurl" type="text" class="form-control" placeholder="請輸入圖片連結">
-                  <img class="img-fluid" :src="tempProduct.imagesurl">
+                  <label for="imageurl">主要圖片</label>
+                  <input v-model="tempProduct.imageurl" type="text" class="form-control" placeholder="請輸入圖片連結">
+                  <img class="img-fluid" :src="tempProduct.imageurl">
                 </div>
 
                 <div v-if="Array.isArray(tempProduct.imagesurl)">
                   <div class="mb-1" v-for="(image, key) in tempProduct.imagesurl" :key="key">
                     <div class="form-group">
-                      <label for="imagesurl">圖片網址</label>
+                      <label for="imageurl">圖片網址</label>
                       <input type="text" v-model="tempProduct.imagesurl[key]" class="form-control"
                         placeholder="請輸入圖片網址">
                     </div>
@@ -102,8 +102,8 @@
                 [tempProduct.imagesurl.length - 1]">
                     <button class="btn btn-outline-primary btn-sm d-block w-100"
                       @click="tempProduct.imagesurl.push('')">
-                      <!-- 圖片陣列沒有圖的話 -->
-                      新增圖片1
+                      <!-- 新增用 -->
+                      新增圖片
                     </button>
                   </div>
 
@@ -116,8 +116,8 @@
 
                 <div v-else>
                   <button class="btn btn-outline-primary btn-sm d-block w-100" @click="createimages">
-                    <!-- 圖片陣列沒有圖 -->
-                    新增圖片2
+                    <!-- 編輯用 -->
+                    新增圖片
                   </button>
                 </div>
               </div>
