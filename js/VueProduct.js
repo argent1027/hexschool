@@ -17,6 +17,9 @@ const obj = createApp({
             alertInfo: ''
         }
     },
+
+
+
     methods: {
         openModal(type, item) {
             //--------------新增
@@ -60,6 +63,33 @@ const obj = createApp({
             alertdom.show();
             setTimeout(() => { alertdom.hide() }, 2000);
             setTimeout(() => { window.location = 'login.html'; }, 2500);
+        },
+        createimages() {
+            this.tempProduct.imagesurl = [];
+            this.tempProduct.imagesurl.push('');
+        },
+        confirm() {
+            //新增
+            let url = `${this.apiUrl}/${this.apiPath}/admin/product`;
+            let http = 'post';
+
+            //編輯
+            if (!this.isnew) {
+                url = `${this.apiUrl}/${this.apiPath}/admin/product/${this.tempProduct.id}`;
+                http = 'put'
+            }
+
+            axios[http](url, { data: this.tempProduct })
+                .then((response) => {
+                    if (response.data.success) {
+                        alert(response.data.message);
+                        productModal.hide();
+                        this.getData();
+                    } else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(() => { })
         }
     },
     mounted() {
