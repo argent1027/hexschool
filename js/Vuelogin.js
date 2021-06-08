@@ -20,6 +20,7 @@ const object = createApp({
                 .then((res) => {
                     console.log(res);
                     if (res.data.success) {
+                        alert('6/8版本')
                         window.location = 'VueProduct.html';
                     }
                     else {
