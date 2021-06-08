@@ -12,7 +12,7 @@ const obj = createApp({
             products: [],
             isnew: false,
             tempProduct: {
-                imagesurl: [],
+                imagesUrl: [],
             },
             alertInfo: ''
         }
@@ -25,7 +25,7 @@ const obj = createApp({
             //--------------新增
             if (type == 'new') {
                 this.tempProduct = {
-                    imagesurl: [],
+                    imagesUrl: [],
                 };
                 console.log(this.tempProduct);
                 this.isnew = true;
@@ -35,6 +35,7 @@ const obj = createApp({
             //--------------編輯
             else if (type == 'edit') {
                 this.tempProduct = { ...item }; //複製
+                console.log(this.tempProduct);
                 this.isnew = false;
                 productModal.show();
             }
@@ -43,6 +44,20 @@ const obj = createApp({
                 this.tempProduct = { ...item };
                 delProductModal.show();
             }
+        },
+        delProduct() {
+            const url = `${this.apiurl}/${this.apipath}/admin/product/${this.tempProduct.id}`;
+
+            axios.delete(url).then((response) => {
+                if (response.data.success) {
+                    alert(response.data.message);
+                    delProductModal.hide();
+                    this.getData();
+                } else {
+                    this.alertInfo = response.data.message;
+                    openalert();
+                }
+            });
         },
         getData(page = 1) {
             const url = `${this.apiurl}/${this.apipath}/admin/products?page=${page}`;
@@ -65,8 +80,8 @@ const obj = createApp({
             setTimeout(() => { window.location = 'login.html'; }, 2500);
         },
         createimages() {
-            this.tempProduct.imagesurl = [];
-            this.tempProduct.imagesurl.push('');
+            this.tempProduct.imagesUrl = [];
+            this.tempProduct.imagesUrl.push('');
         },
         confirm() {
             //新增

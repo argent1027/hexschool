@@ -86,29 +86,29 @@
                 <div class="form-group">
                   <label for="imageurl">主要圖片</label>
                   <input v-model="tempProduct.imageurl" type="text" class="form-control" placeholder="請輸入圖片連結">
-                  <img class="img-fluid" :src="tempProduct.imageurl">
+                  <img class="img-fluid" :src="tempProduct.imageUrl">
                 </div>
 
-                <div v-if="Array.isArray(tempProduct.imagesurl)">
-                  <div class="mb-1" v-for="(image, key) in tempProduct.imagesurl" :key="key">
+                <div v-if="Array.isArray(tempProduct.imagesUrl)">
+                  <div class="mb-1" v-for="(image, key) in tempProduct.imagesUrl" :key="key">
                     <div class="form-group">
                       <label for="imageurl">圖片網址</label>
-                      <input type="text" v-model="tempProduct.imagesurl[key]" class="form-control"
+                      <input type="text" v-model="tempProduct.imagesUrl[key]" class="form-control"
                         placeholder="請輸入圖片網址">
                     </div>
                     <img class="img-fluid " :src="image">
                   </div>
-                  <div v-if="!tempProduct.imagesurl.length || tempProduct.imagesurl
-                [tempProduct.imagesurl.length - 1]">
+                  <div v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl
+                [tempProduct.imagesUrl.length - 1]">
                     <button class="btn btn-outline-primary btn-sm d-block w-100"
-                      @click="tempProduct.imagesurl.push('')">
+                      @click="tempProduct.imagesUrl.push('')">
                       <!-- 新增用 -->
                       新增圖片
                     </button>
                   </div>
 
                   <div v-else>
-                    <button class="btn btn-outline-danger btn-sm d-block w-100" @click="tempProduct.imagesurl.pop()">
+                    <button class="btn btn-outline-danger btn-sm d-block w-100" @click="tempProduct.imagesUrl.pop()">
                       刪除圖片
                     </button>
                   </div>
@@ -198,13 +198,13 @@
           </div>
           <div class="modal-body">
             是否刪除
-            <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+            <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-danger">
+            <button type="button" class="btn btn-danger" @click="delProduct">
               確認刪除
             </button>
           </div>
