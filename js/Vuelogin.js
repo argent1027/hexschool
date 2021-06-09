@@ -11,16 +11,14 @@ const object = createApp({
             },
             alertInfo: ''
         }
-    }
-    ,
-
+    },
     methods: {
         login() {
             axios.post(`${this.url}/admin/signin`, this.data)
                 .then((res) => {
                     console.log(res);
                     if (res.data.success) {
-                        alert('6/8版本')
+                        alert('6/9版本');
                         window.location = 'VueProduct.html';
                     }
                     else {
