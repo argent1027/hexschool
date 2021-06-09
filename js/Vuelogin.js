@@ -18,6 +18,10 @@ const object = createApp({
                 .then((res) => {
                     console.log(res);
                     if (res.data.success) {
+                        const { token, expired } = res.data;
+                        //取出token
+                        document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
+
                         alert('6/9版本');
                         window.location = 'VueProduct.html';
                     }

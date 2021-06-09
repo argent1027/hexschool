@@ -119,7 +119,7 @@ const obj = createApp({
             this.alertInfo = '您尚未登入請重新登入。';
             alertdom.show();
             setTimeout(() => { alertdom.hide() }, 2000);
-            //setTimeout(() => { window.location = 'login.html'; }, 2500);
+            setTimeout(() => { window.location = 'login.html'; }, 2500);
         }
         axios.defaults.headers.common.Authorization = token;
         this.getData();
