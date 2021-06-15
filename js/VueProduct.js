@@ -85,12 +85,12 @@ const obj = createApp({
         },
         confirm() {
             //新增
-            let url = `${this.apiUrl}/${this.apiPath}/admin/product`;
+            let url = `${this.apiurl}/${this.apipath}/admin/product`;
             let http = 'post';
 
             //編輯
             if (!this.isnew) {
-                url = `${this.apiUrl}/${this.apiPath}/admin/product/${this.tempProduct.id}`;
+                url = `${this.apiurl}/${this.apipath}/admin/product/${this.tempProduct.id}`;
                 http = 'put'
             }
 
@@ -112,8 +112,8 @@ const obj = createApp({
         delProductModal = new bootstrap.Modal(document.querySelector('#delProductModal'));
         alertdom = new bootstrap.Modal(document.querySelector('#alert'));
 
-        //取token
-        const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+        //從cookie取token出來
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)Token\s*=\s*([^;]*).*$)|^.*$/, '$1');
         console.log(token);
         if (token == '') {
             this.alertInfo = '您尚未登入請重新登入。';

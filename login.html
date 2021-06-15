@@ -26,12 +26,12 @@
         <div class="card-body">
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="userid" placeholder="name@example.com" v-model="data.username">
-            <label for="floatingInput">帳號</label>
+            <input type="email" class="form-control" id="userid" placeholder="name@example.com" v-model="data.username">
+            <label for="userid">帳號</label>
           </div>
           <div class="form-floating">
             <input type="password" class="form-control" id="passwordid" placeholder="Password" v-model="data.password">
-            <label for="floatingPassword">密碼</label>
+            <label for="passwordid">密碼</label>
           </div>
         </div>
         <div class="buttoncontainer">
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Modal   data-bs-backdrop 關掉後面背景  -->
-    <class class="modal fade" id="alert" data-bs-backdrop="false" tabindex="-1" aria-labelledby="alert"
+    <div class="modal fade" id="alert" data-bs-backdrop="false" tabindex="-1" aria-labelledby="alert"
       aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-    </class>
+    </div>
   </div>
 
 
